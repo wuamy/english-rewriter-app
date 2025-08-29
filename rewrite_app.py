@@ -9,21 +9,18 @@ from dotenv import load_dotenv
 
 import streamlit as st
 
-# Custom CSS to hide the automatic GitHub icon and other header elements
-hide_github_icon = """
-<style>
-    /* Use a stable data-testid for the header action elements */
-    [data-testid="stHeaderActionElements"] {
-        display: none;
-    }
-</style>
-"""
-st.markdown(hide_github_icon, unsafe_allow_html=True)
+st.title("Repository Link Example")
 
-st.title("My App Without the GitHub Icon")
+# Create a toggle to show or hide the link
+show_link = st.toggle("Show repository link", value=False)
 
-# ...rest of your app code...
-
+# Display the link button only when the toggle is active
+if show_link:
+    st.link_button(
+        "Go to GitHub Repository",
+        url="https://github.com/your-username/your-repo",
+        help="Click to open the project on GitHub",
+    )
 
 
 
@@ -225,6 +222,7 @@ if st.session_state['rewritten_output']: # Only display if there's output
     st.info("To copy, simply highlight the text above and press Ctrl+C (Windows/Linux) or Cmd+C (macOS).")
 else:
     st.write("Your rewritten text will appear here after you click 'Rewrite Text'.")
+
 
 
 
