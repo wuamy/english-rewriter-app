@@ -7,24 +7,6 @@ import requests
 import logging
 from dotenv import load_dotenv
 
-import streamlit as st
-
-st.title("Repository Link Example")
-
-# Create a toggle to show or hide the link
-show_link = st.toggle("Show repository link", value=False)
-
-# Display the link button only when the toggle is active
-if show_link:
-    st.link_button(
-        "Go to GitHub Repository",
-        url="https://github.com/your-username/your-repo",
-        help="Click to open the project on GitHub",
-    )
-
-
-
-
 # Load environment variables from .env file
 load_dotenv()
 
@@ -222,6 +204,7 @@ if st.session_state['rewritten_output']: # Only display if there's output
     st.info("To copy, simply highlight the text above and press Ctrl+C (Windows/Linux) or Cmd+C (macOS).")
 else:
     st.write("Your rewritten text will appear here after you click 'Rewrite Text'.")
+
 
 
 
