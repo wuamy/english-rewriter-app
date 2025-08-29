@@ -7,6 +7,27 @@ import requests
 import logging
 from dotenv import load_dotenv
 
+import streamlit as st
+
+# Custom CSS to hide the automatic GitHub icon and other header elements
+hide_github_icon = """
+<style>
+    /* Use a stable data-testid for the header action elements */
+    [data-testid="stHeaderActionElements"] {
+        display: none;
+    }
+</style>
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
+st.title("My App Without the GitHub Icon")
+
+# ...rest of your app code...
+
+
+
+
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -204,6 +225,7 @@ if st.session_state['rewritten_output']: # Only display if there's output
     st.info("To copy, simply highlight the text above and press Ctrl+C (Windows/Linux) or Cmd+C (macOS).")
 else:
     st.write("Your rewritten text will appear here after you click 'Rewrite Text'.")
+
 
 
 
